@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Post;
 
 class ControllerPagina extends Controller
 {
@@ -23,13 +24,13 @@ class ControllerPagina extends Controller
         return view('about');
     }
 
-
-  /**
+    /**
      * Mostra la pagina blog
      * @return view blog
      */
     public function blog(){
-        return view('blog');
+        $posts = Post::all();
+        return view('blog', compact('posts'));
     }
 
 }
